@@ -77,5 +77,28 @@ fieldset {
     color: #365ABA;
 }
 
+.btn_castling {
+    background: #365ABA;
+    color: #FFFFFF;
+}
+
+.input {
+    
+}
+
+
+
+.hero {
+    display: none;
+}
+
+.wishlist {
+    display: none;
+}
+
+.edit {
+    /* display: none; */
+}
+
 
 
