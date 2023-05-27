@@ -82,23 +82,47 @@ fieldset {
     color: #FFFFFF;
 }
 
-.input {
-    
+@media (max-wodth: 1700px) {
+    .container {
+        padding: 0 32px;
+    }
+
+    .btn {
+        font-size: 28px;
+    }
 }
 
+@media (max-wodth: 1200px) {
+    .container {
+        padding: 0 22px;
+    }
 
-
-.hero {
-    display: none;
+    .btn {
+        font-size: 24px;
+    }
 }
 
-.wishlist {
-    display: none;
+@media (max-wodth: 992px) {
+    .container {
+        padding: 0 34px;
+    }
 }
 
-.edit {
-    /* display: none; */
-}
+@media (max-wodth: 740px) {
+    .container {
+        padding: 0 16px;
+    }
+    .btn {
+        font-size: 20px;
+    }
+    .btn_castling {
+        font-size: 24px;
+
+    }
+    }
+
+
+
 
 
 
