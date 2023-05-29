@@ -82,7 +82,7 @@ fieldset {
     color: #FFFFFF;
 }
 
-@media (max-wodth: 1700px) {
+@media (max-width: 1700px) {
     .container {
         padding: 0 32px;
     }
@@ -92,7 +92,7 @@ fieldset {
     }
 }
 
-@media (max-wodth: 1200px) {
+@media (max-width: 1200px) {
     .container {
         padding: 0 22px;
     }
@@ -102,13 +102,13 @@ fieldset {
     }
 }
 
-@media (max-wodth: 992px) {
+@media (max-width: 992px) {
     .container {
         padding: 0 34px;
     }
 }
 
-@media (max-wodth: 740px) {
+@media (max-width: 740px) {
     .container {
         padding: 0 16px;
     }
