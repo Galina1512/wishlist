@@ -7,9 +7,35 @@ import { router, auth } from "./index.js";
 const nav = document.querySelector('.nav');
 createBurgerMenu(nav, 'nav_active', '.nav__btn');
 
-export const renderNavigation = () => {
+export const renderNavigation = (edit, formProfile) => {
     nav.textContent = '';
-if (auth.login) {
+
+    if (edit) {
+        const buttonSave = createElement('button', {
+            className: 'nav__btn btn',
+            textContent: 'Сохранить изменения',
+        });
+
+        buttonSave.addEventListener('click', (e) => {
+            e.preventDefault();
+            formProfile.dispatchEvent(new Event ('submit', {bubbles: true}))
+        });
+
+        const buttonBack = createElement('button', {
+            className: 'nav__btn btn',
+            textContent: 'Назад',
+        });
+
+        buttonBack.addEventListener('click', () => {
+            history.back();
+        })
+
+        nav.append(buttonSave, buttonBack )
+
+        return;
+    }
+
+    if (auth.login) {
     const buttonEditProfile = createElement('button', {
         className: 'nav__btn btn',
         textContent: 'Редактировать профиль',
@@ -23,6 +49,7 @@ if (auth.login) {
         className: 'nav__btn btn',
         textContent: 'Добавить желание'
     });
+
 
     buttonAddWish.addEventListener('click', () => {
         router.setRoute('/editwish/newwish')
@@ -41,7 +68,7 @@ if (auth.login) {
     });
 
 
-nav.append(buttonEditProfile, buttonAddWish, buttonLogout )
+    nav.append(buttonEditProfile, buttonAddWish, buttonLogout )
 
     return;
 } 
@@ -65,6 +92,7 @@ nav.append(buttonEditProfile, buttonAddWish, buttonLogout )
                 }
 
                 try {
+                //    const response = await fetch(`https://cors-anywhere.herokuapp.com/${API_URL}/register`, {
                    const response = await fetch(`${API_URL}/register`, {
                    method: 'POST',
                    headers: {'Content-Type': 'application/json' },
@@ -112,7 +140,7 @@ nav.append(buttonEditProfile, buttonAddWish, buttonLogout )
                 }
 
                 try {
-                   const response = await fetch(`${API_URL}/register`, {
+                   const response = await fetch(`${API_URL}/login`, {
                    method: 'POST',
                    headers: {'Content-Type': 'application/json' },
                    body: JSON.stringify(credentials) 

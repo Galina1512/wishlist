@@ -40,7 +40,7 @@
 
         <section class="wishlist">
         <div class="container">
-            <div class="wishlist__profile profile">
+            <cdiv class="wishlist__profile profile">
                 <img src="img/user1.png" alt="аватарка" class="profile__avatar">
                 <div class="profile__content">
                     <h2 class="profile__fullname">Иван Петров</h2>
@@ -52,7 +52,7 @@
                         <span>редактировать профиль</span>
                     </button>
                 </div>
-            </div>
+            </cdiv>
             <p class="wishlist__description">Это мой список желаний если вы мне хотите что-то подарить, то прошу выбирайте из списка ниже или карту Ozon. Лучше нарушить эффект внезапности, чем подарить что-то ненужное или то, что у меня уже есть.</p>
             
             <ul class="wishlist__categories categories">
@@ -160,6 +160,7 @@
 
             <fieldset class="edit__birthdate">
                 <legend class="edit__label">Дата рождения:</legend>
+                <div class="edit__birthday-wrapper">
                 <label class="edit__label edit__label-select">
                     <select type="text" class="edit__select" name="day">
                         <option value="1">one</option>
@@ -179,10 +180,11 @@
    
                         </select>
                     </label>
+                </div>
             </fieldset>
 
             <fieldset class="edit__description">
-                <label class="edit__label" for="description">Вступительный текст: </label>
+                <label class="edit__label-text" for="description">Вступительный текст: </label>
                         <textarea  class="edit__description-input" name="discription"></textarea>
             </fieldset>
 

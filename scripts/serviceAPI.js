@@ -2,7 +2,7 @@ import { API_URL, JWT_TOKEN_KEY } from "./const.js";
 
 export const getLogin = async (token) => {
   try {
-    const response = await fetch(`${API-URL}/getLogin`, {
+    const response = await fetch(`${API_URL}/getLogin`, {
         method: `GET`,
         headers: {
             'Content-Type': 'application/json',
