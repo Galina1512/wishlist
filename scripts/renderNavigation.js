@@ -1,6 +1,6 @@
 import { createBurgerMenu } from "./createBurgerMenu.js";
 import { createElement } from "./helper.js";
-import { API_URL, JWT_TOKEN_KEY } from "./const.js";
+import { API_URL, JWT_TOKEN_KEY, ROUTE_NEW_WISH } from "./const.js";
 import { renderModal } from "./renderModal.js";
 import { router, auth } from "./index.js"; 
 
@@ -52,7 +52,7 @@ export const renderNavigation = (edit, formProfile) => {
 
 
     buttonAddWish.addEventListener('click', () => {
-        router.setRoute('/editwish/newwish')
+        router.setRoute(`editwish/${ROUTE_NEW_WISH}`);
     });
 
 
@@ -92,11 +92,11 @@ export const renderNavigation = (edit, formProfile) => {
                 }
 
                 try {
-                //    const response = await fetch(`https://cors-anywhere.herokuapp.com/${API_URL}/register`, {
                    const response = await fetch(`${API_URL}/register`, {
                    method: 'POST',
+                //    mode: 'no-cors',
                    headers: {'Content-Type': 'application/json' },
-                   body: JSON.stringify(credentials) 
+                   body: JSON.stringify(credentials), 
                    });
 
                    console.log(response);

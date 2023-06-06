@@ -1,6 +1,7 @@
 import { createElement, pluralizeYears } from "./helper.js";
-import { auth } from "./index.js";
+import { auth, router } from "./index.js";
 import { getUser } from "./serviceAPI.js";
+import { API_URL } from "./const.js";
 
 export const createWishlist = async (pageLogin) => {
     const login = auth.login;
@@ -10,6 +11,11 @@ export const createWishlist = async (pageLogin) => {
     }
 
     const user = await getUser(pageLogin);
+
+    if (!user.login) {
+        router.setRoute('/');
+        return;
+    }
 
     const section = createElement('section', {
         className: 'wishlist',
@@ -135,19 +141,30 @@ export const createWishlist = async (pageLogin) => {
                     });
 
                     const itemImg = createElement('img', {
-                        src: `${API_URL}/${item.img}`,
+                        src: `${API_URL}/${item.image}`,
                         alt: 'item.title',
                         className: 'item__image',
                     });
 
-                    const itemTitile = createElement('h4', {
+                    const itemTitle = createElement('h4', {
                         className: 'item__title',
-                        textContent: item.title,
                     });
+
+                    if (item.link) {
+                        const itemLink = createElement('a', {
+                            className: 'item__link',
+                            href: item.lick,
+                            textContent: item.title,
+                            target: '_blank',
+                        });
+                        itemTitle.append(itemLink);
+                    } else {
+                        itemTitle.textContent = item.title;
+                    };
 
                     const itemPrice = createElement('p', {
                         className: 'item__price',
-                        textContent: `${item.price} ${item.currency}`,
+                        textContent: item.price && `${item.price} ${item.currency}`,
                     });
                 
                     itemElem.append(itemImg, itemTitile, itemPrice)

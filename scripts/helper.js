@@ -1,4 +1,4 @@
-import { doc } from "prettier";
+// import { doc } from "prettier";
 
 export const createElement = (tagName, attribute) => {
     const elem = document.createElement(tagName);
@@ -23,40 +23,57 @@ export const createElement = (tagName, attribute) => {
         }
     };
 
-    export const handleImageFileSelection = (input, image) => {
+    export const handleImageFileSelection = (inputFile, image, inputHidden) => {
+const handleFileInputChage = (e) => {
+    if (event.target.files.length > 0) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+            image.src = reader.result;
+            if (inputHidden) {
+                inputHidden.value = reader.result;
+            }
+        });
 
+        reader.readAsDataURL(file);
+    }
+};
     }
 
     export const createSelectDate = (selectDay, selectMonth, selectYear, birthday) => {
         for(let day = 0; day <= 31; day++) {
-        const option = document.createElement('option');
-            option.value = day ? day : '';
-            option.text = day ? day : '';
+        const option = createElement('option', {
+            value: day ? day : '',
+            text: day ? day : '',
+        });
             selectDay.append(option);
         }
-
         const months = [
             '', 'Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'
         ];
 
         for (let i = 0; i < months.length; i++ ) {
-            const option = document.createElement('option');
-            option.value = i;
-            option.text = months[i];
+            const option = createElement('option', {
+                value: i,
+                text: months[i],
+            });
+
             selectMonth.append(option);
         }
 
         const currentYear = new Date().getFullYear();
 
-        const option = document.createElement('option');
-        optionYear.value = '';
-        optionYear.text = '';
+        const optionYear = createElement('option', {
+            value: '',
+            text: '',
+            });
         selectYear.append(optionYear);
 
         for (let year = currentYear; year >= currentYear-100; year--) {
-            const option = document.createElement('option');
-            option.value = year;
-            option.text = year;
+            const option = createElement('option',{
+                value: 'year',
+                text: 'year',
+            })
             selectYear.append(option);
         }
 
@@ -74,4 +91,17 @@ export const createElement = (tagName, attribute) => {
         })
     };
     
+    export const createOptionsCurrency = (select, currency) => {
+        const currencies = ['RUB', 'USD', 'EUR', 'GBP'];
+
+        for (let i = 0; i < currencies.length; i++) {
+            const option = createElement('option', {
+                value: currencies[i],
+                text: currencies[i]
+            });
+            select.append(option);
+        }
+        select.value = currency ?? currencies[0];
+     }
+
 

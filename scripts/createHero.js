@@ -44,7 +44,5 @@ export const createHero = () => {
     listSteps.append(stepOne, stepTwo, stepThre);
 
     return(section);
-
-
 }
 

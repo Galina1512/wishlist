@@ -54,6 +54,11 @@ const editAvatarInput = createElement('input', {
     // value: `${API_URL}/${user.avatar}`,
 });
 
+const editHiddenInput = createElement('input', {
+    type: 'hidden',
+    name: 'avatar',
+});
+
 handleImageFileSelection(editAvatarInput, editAvatarImage);
 
 const btnDeleteAvatar = createElement('button', {
@@ -69,7 +74,7 @@ const btnDeleteAvatar = createElement('button', {
 
 btnDeleteAvatar.addEventListener('click', () => {
     editAvatarInput.value = '';
-    editAvatarImage.src = 'img/avatar.png';
+    editAvatarImage.src = './img/avatar.png';
 });
 
 editAvatarLoad.append(editAvatarLabel, editAvatarInput, btnDeleteAvatar)
@@ -187,6 +192,7 @@ const editDescriptionTextarea = createElement('textarea', {
     className: 'edit__description-input',
     name: 'discription',
     id: 'description',
+    value: user.description && '',
 });
 
 editDescription.append(editDescriptionLabel, editDescriptionTextarea);
