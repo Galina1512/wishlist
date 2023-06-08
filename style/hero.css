@@ -73,14 +73,19 @@
     .hero__title {
         font-size: 96px;
         margin-bottom: 8px;
+        line-height: 120px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        z-index: -2;
      }
     
      .hero__description {
         font-size: 18px;
         margin-bottom: 54px;
+     }
+     .nav {
+      z-index: -1;
      }
     
 }

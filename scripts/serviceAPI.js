@@ -11,7 +11,6 @@ export const getLogin = async (token) => {
     });
 
     const data = await response.json();
-    console.log(`data: `, data);
 
     return data;
   } catch (err) {

@@ -2,11 +2,11 @@ import { createElement } from "./helper.js";
 
 export const createHero = () => {
     const section = createElement ('section', {
-        className: 'hero'
+        className: 'hero',
     });
 
     const container = createElement('div', {
-        className: 'container hero__container'
+        className: 'container hero__container',
 
     });
 
@@ -14,7 +14,7 @@ export const createHero = () => {
 
     const title = createElement('h1', {
         className: 'hero__title',
-        innerHTML: '<span>Wish</span><span>List</span>'
+        innerHTML: '<span>Wish</span><span>List</span>',
     });
 
     const description = createElement('p', {
@@ -23,26 +23,26 @@ export const createHero = () => {
     });
 
     const listSteps = createElement('ol', {
-        className: 'hero__steps steps'
+        className: 'hero__steps steps',
     });
 
     container.append(title, description, listSteps);
 
     const stepOne = createElement('li', {
         className: 'steps__item',
-        textContent: 'создайте список желаний'
+        textContent: 'создайте список желаний',
     });
     const stepTwo = createElement('li', {
         className: 'steps__item',
-        innerHTML: 'Поделитесь ссылкой с&nbsp;друзьями'
+        innerHTML: 'Поделитесь ссылкой с&nbsp;друзьями',
     });
     const stepThre = createElement('li', {
         className: 'steps__item',
-        textContent: 'Получите желанный подарок'
+        textContent: 'Получите желанный подарок',
     });
 
     listSteps.append(stepOne, stepTwo, stepThre);
 
     return(section);
-}
+};
 

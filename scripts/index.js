@@ -14,7 +14,7 @@ if (!auth.login) {
 }
 let isMainPage = true;
 
-const app = document.querySelector('app');
+const app = document.querySelector('.app');
 
 const handleEditPageRoute =  async(id) => {
     isMainPage = false;
@@ -43,14 +43,17 @@ const handleHomePage = () => {
     app.textContent = '';
     renderNavigation();
     app.append(createHero());
+
+
 }
 const init = () => {
     let isMainPage = true;
+    handleHomePage();
 
     router.on('/', handleHomePage);
     router.on('/editwish/:id', handleEditPageRoute);
     router.on('/editprofile/:login', handleEditProfileRoute);
-    router.on('/user/:loogin', handleUserRoute);
+    router.on('/user/:login', handleUserRoute);
 
     router.init();
 
@@ -59,7 +62,6 @@ const init = () => {
 
         if (auth.login) {
             router.setRoute(`/user/${auth.login}`)
-
         } else {
             router.setRoute('/')
         }

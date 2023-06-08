@@ -2,7 +2,7 @@ import { ROUTE_NEW_WISH } from "./const.js";
 import { 
     createElement, 
     createOptionsCurrency, 
-    handleImageFileSelection 
+    handleImageFileSelection, 
 } from "./helper.js";
 import { deleteWish, getWish, sendDataWish, updateDataWish } from "./serviceAPI.js";
 
@@ -55,7 +55,6 @@ export const createEditWish = async (id) => {
     type: 'text',
     // value: wishData.title ? wishData.title : ''
     value: wishData.title ?? ''
-
    });
 
    labelTitile.append(labelTextTitle, inputTitle);

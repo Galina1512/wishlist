@@ -1,7 +1,7 @@
 import { createBurgerMenu } from "./createBurgerMenu.js";
 import { createElement } from "./helper.js";
-import { API_URL, JWT_TOKEN_KEY, ROUTE_NEW_WISH } from "./const.js";
 import { renderModal } from "./renderModal.js";
+import { API_URL, JWT_TOKEN_KEY, ROUTE_NEW_WISH } from "./const.js";
 import { router, auth } from "./index.js"; 
 
 const nav = document.querySelector('.nav');
@@ -85,21 +85,24 @@ export const renderNavigation = (edit, formProfile) => {
             description: 'Введите ваши данные для регистрации на сервисе WishList',
             btnSubmit: 'Зарегистрироваться',
             submitHandler: async (event) => {
+            // async submitHandler(event) {
                 const formData = new FormData(event.target);
                 const credentials = {
                     login: formData.get('login'),
                     password: formData.get('password'),
-                }
+                };
 
                 try {
                    const response = await fetch(`${API_URL}/register`, {
                    method: 'POST',
-                //    mode: 'no-cors',
                    headers: {'Content-Type': 'application/json' },
                    body: JSON.stringify(credentials), 
                    });
 
-                   console.log(response);
+                //    .then(res => res.clone().json())
+                //    .then(data => console.log(data));
+
+                //    console.log(response);
 
                    if (response.ok) {
                     const data = await response.json();
@@ -137,7 +140,7 @@ export const renderNavigation = (edit, formProfile) => {
                 const credentials = {
                     login: formData.get('login'),
                     password: formData.get('password'),
-                }
+                };
 
                 try {
                    const response = await fetch(`${API_URL}/login`, {
@@ -164,7 +167,7 @@ export const renderNavigation = (edit, formProfile) => {
 
                 }
             }
-    })
+        });
 });
     nav.append(buttonSignUp, buttonLogin);
 }

@@ -51,7 +51,7 @@ const editAvatarInput = createElement('input', {
     type: 'file',
     id: 'avatar-load',
     accept: 'image/jpeg, image/png',
-    // value: `${API_URL}/${user.avatar}`,
+    value: `${API_URL}/${user.avatar}`,
 });
 
 const editHiddenInput = createElement('input', {
