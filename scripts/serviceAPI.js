@@ -80,7 +80,7 @@ export const sendDataWish = async (wishData) => {
   }
 
   try {
-    const response = await fetch(`${API-URL}/addWish`, {
+    const response = await fetch(`${API_URL}/addWish`, {
         method: `POST`,
         headers,
         body: JSON.stringify(wishData)
@@ -105,7 +105,7 @@ export const updateDataWish = async (id, wishData) => {
   }
 
   try {
-    const response = await fetch(`${API-URL}/wish/${id}`, {
+    const response = await fetch(`${API_URL}/wish/${id}`, {
         method: `PUT`,
         headers,
         body: JSON.stringify(wishData)
@@ -131,7 +131,7 @@ export const getWish = async (id) => {
   }
 
   try {
-    const response = await fetch(`${API-URL}/wish/${id}`, {
+    const response = await fetch(`${API_URL}/wish/${id}`, {
         method: `GET`,
         headers,
     });
@@ -155,7 +155,7 @@ export const deleteWish = async (id) => {
   }
 
   try {
-    const response = await fetch(`${API-URL}/wish/${id}`, {
+    const response = await fetch(`${API_URL}/wish/${id}`, {
         method: `DELETE`,
         headers,
     });
