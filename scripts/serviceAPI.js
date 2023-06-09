@@ -29,7 +29,7 @@ export const getUser = async (login) => {
   }
 
   try {
-    const response = await fetch(`${API-URL}/user/${login}`, {
+    const response = await fetch(`${API_URL}/user/${login}`, {
         method: `GET`,
         headers,
     });

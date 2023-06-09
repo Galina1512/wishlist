@@ -1,4 +1,4 @@
-import { ROUTE_NEW_WISH } from "./const.js";
+import { ROUTE_NEW_WISH, API_URL } from "./const.js";
 import { 
     createElement, 
     createOptionsCurrency, 

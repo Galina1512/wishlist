@@ -167,7 +167,7 @@ export const createWishlist = async (pageLogin) => {
                         textContent: item.price && `${item.price} ${item.currency}`,
                     });
                 
-                    itemElem.append(itemImg, itemTitile, itemPrice)
+                    itemElem.append(itemImg, itemTitle, itemPrice)
 
                     if (login === pageLogin) {
                     const itemBtn = createElement('button' , {

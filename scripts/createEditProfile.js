@@ -1,3 +1,4 @@
+import { API_URL } from "./const.js";
 import { createElement, handleImageFileSelection } from "./helper.js";
 import { getUser } from "./serviceAPI.js";
 
@@ -21,7 +22,7 @@ formProfile.addEventListener('submit', (e) => {
  })
 
 
-const editAvatar = createElemet('fieldset', {
+const editAvatar = createElement('fieldset', {
     className: 'edit__avatar'
 });
 
@@ -74,7 +75,7 @@ const btnDeleteAvatar = createElement('button', {
 
 btnDeleteAvatar.addEventListener('click', () => {
     editAvatarInput.value = '';
-    editAvatarImage.src = './img/avatar.png';
+    editAvatarImage.src = './img/user1.png';
 });
 
 editAvatarLoad.append(editAvatarLabel, editAvatarInput, btnDeleteAvatar)
