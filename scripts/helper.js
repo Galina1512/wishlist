@@ -24,7 +24,7 @@ export const createElement = (tagName, attribute) => {
     };
 
     export const handleImageFileSelection = (inputFile, image, inputHidden) => {
-const handleFileInputChage = (e) => {
+        const handleFileInputChange = (event) => {
     if (event.target.files.length > 0) {
         const file = event.target.files[0];
         const reader = new FileReader();
@@ -37,6 +37,7 @@ const handleFileInputChage = (e) => {
 
         reader.readAsDataURL(file);
     }
+    inputFile.addEventListener('change', handleFileInputChange()); 
 };
     }
 
@@ -71,14 +72,14 @@ const handleFileInputChage = (e) => {
 
         for (let year = currentYear; year >= currentYear-100; year--) {
             const option = createElement('option',{
-                value: 'year',
-                text: 'year',
+                value: year,
+                text: year,
             })
             selectYear.append(option);
         }
 
-        if (birthdate) {
-            const  [day, month, year] = birthdate.split('/');
+        if (birthday) {
+            const  [month, day, year] = birthday.split('/');
             selectDay.value = day;
             selectMonth.value = month;
             selectYear.value = year;

@@ -33,7 +33,7 @@ export const createWishlist = async (pageLogin) => {
 
     const avatar = createElement('img', {
         className: 'profile__avatar',
-        src: 'img/avatar.png',
+        src: `${API_URL}/${user.avatar}`,
         alt: 'foto Ivana Petrova',
     });
 
@@ -54,14 +54,19 @@ export const createWishlist = async (pageLogin) => {
 
     if(user.birthday) {
         const birthday = new DataTransfer(user.birthday);
-        const day = birthday.getDate();
-        const month = birthday.toLocaleString('default', {month: 'long'});
+        const dayAndMonth = birthday.toLocaleString('default', {
+            month: 'long',
+            day: 'numeric',
+        });
+
+        // const day = birthday.getDate();
+        // const month = birthday.toLocaleString('default', {month: 'long'});
         const ageDifMs = Date.now() - birthday.getTime();
         const ageDate = new DataTransfer(ageDifMs);
         const age = Math.abs(ageDate.getUTCFullYear() - 1970);
         const plural  = pluralizeYears(age);
 
-        const ageMessage = `${day} ${month} исполнится ${age} ${plural}`
+        const ageMessage = `${dayAndMonth} исполнится ${age} ${plural}`
 
         const birthdayElem = createElement('p', {
             className: 'profile__birthday',

@@ -52,7 +52,7 @@ export const renderNavigation = (edit, formProfile) => {
 
 
     buttonAddWish.addEventListener('click', () => {
-        router.setRoute(`editwish/${ROUTE_NEW_WISH}`);
+        router.setRoute(`/editwish/${ROUTE_NEW_WISH}`);
     });
 
 
@@ -102,7 +102,7 @@ export const renderNavigation = (edit, formProfile) => {
                 //    .then(res => res.clone().json())
                 //    .then(data => console.log(data));
 
-                //    console.log(response);
+                   console.log(response);
 
                    if (response.ok) {
                     const data = await response.json();

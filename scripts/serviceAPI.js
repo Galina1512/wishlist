@@ -54,7 +54,7 @@ export const sendDataUser = async (id, userData) => {
   }
 
   try {
-    const response = await fetch(`${API-URL}/user/${id}`, {
+    const response = await fetch(`${API_URL}/user/${id}`, {
         method: `PUT`,
         headers,
         body: JSON.stringify(userData)

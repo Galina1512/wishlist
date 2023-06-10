@@ -54,7 +54,7 @@ export const createEditWish = async (id) => {
     name: 'title',
     type: 'text',
     // value: wishData.title ? wishData.title : ''
-    value: wishData.title ?? ''
+    value: wishData.title ?? '',
    });
 
    labelTitile.append(labelTextTitle, inputTitle);
